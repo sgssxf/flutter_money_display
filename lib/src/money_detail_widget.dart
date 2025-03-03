@@ -134,43 +134,27 @@ class MoneyDisplayWidget extends StatelessWidget {
       ),
       TextSpan(
         text: formatWithComma(integerPart!),
-        style: TextStyle(
-          fontSize: integerPartSize,
-          color: integerPartColor,
-          fontWeight: integerPartFontWeight,
-        ),
+        style: TextStyle(fontSize: integerPartSize, color: integerPartColor, fontWeight: integerPartFontWeight),
       ),
     ];
 
     // 如果适用，添加小数点和小数部分
-    if (decimalPart!.isNotEmpty && decimalPart.length >= 2) {
+    if (decimalPart!.isNotEmpty && decimalPart.length >= 1) {
       children.add(
         TextSpan(
           text: '.',
-          style: TextStyle(
-            fontSize: decimalPointSize,
-            color: decimalPointColor,
-            fontWeight: decimalPointFontWeight,
-          ),
+          style: TextStyle(fontSize: decimalPointSize, color: decimalPointColor, fontWeight: decimalPointFontWeight),
         ),
       );
       children.add(
         TextSpan(
           text: decimalPart.substring(0, 2),
-          style: TextStyle(
-            fontSize: decimalPartSize,
-            color: decimalPartColor,
-            fontWeight: decimalPartFontWeight,
-          ),
+          style: TextStyle(fontSize: decimalPartSize, color: decimalPartColor, fontWeight: decimalPartFontWeight),
         ),
       );
     }
 
-    return RichText(
-      text: TextSpan(
-        children: children,
-      ),
-    );
+    return RichText(text: TextSpan(children: children));
   }
 
   /// 通过删除小数部分中的尾随零来格式化价格
