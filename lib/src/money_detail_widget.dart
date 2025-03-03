@@ -139,7 +139,7 @@ class MoneyDisplayWidget extends StatelessWidget {
     ];
 
     // 如果适用，添加小数点和小数部分
-    if (decimalPart!.isNotEmpty && decimalPart.length >= 1) {
+    if (decimalPart!.isNotEmpty && decimalPart.isNotEmpty) {
       children.add(
         TextSpan(
           text: '.',
@@ -148,7 +148,7 @@ class MoneyDisplayWidget extends StatelessWidget {
       );
       children.add(
         TextSpan(
-          text: decimalPart.substring(0, 2),
+          text: decimalPart.substring(0, decimalPart.length),
           style: TextStyle(fontSize: decimalPartSize, color: decimalPartColor, fontWeight: decimalPartFontWeight),
         ),
       );
